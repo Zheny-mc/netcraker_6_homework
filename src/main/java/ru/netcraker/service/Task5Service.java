@@ -96,7 +96,7 @@ public class Task5Service {
 	@Transactional
 	public List<HistoryPurchaseBook> findAllHistoryRurchaiseBook(Integer currentVolume) {
 
-		return purchaseRepository.findAll().stream()
+		List<HistoryPurchaseBook> bookList = purchaseRepository.findAll().stream()
 				.filter(i -> i.getBookList().get(0).getVolume() > currentVolume)
 				.map(pur -> {
 					Book book = pur.getBookList().get(0);
@@ -107,6 +107,10 @@ public class Task5Service {
 							book.getCost()
 					);
 				}).collect(Collectors.toList());
+
+		Collections.sort(bookList, (o1, o2) -> o2.getCost().compareTo(o1.getCost()));
+
+		return bookList;
 	}
 
 }
