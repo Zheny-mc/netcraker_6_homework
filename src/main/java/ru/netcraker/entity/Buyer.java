@@ -1,11 +1,13 @@
 package ru.netcraker.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@EqualsAndHashCode
 public class Buyer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

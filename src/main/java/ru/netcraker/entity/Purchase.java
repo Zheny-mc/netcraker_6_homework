@@ -9,6 +9,7 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
+@EqualsAndHashCode
 public class Purchase {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

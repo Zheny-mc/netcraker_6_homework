@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface ShopRepository extends JpaRepository<Shop, Long> {
 	List<Shop> findAllByLocationArea(String locationArea);
+
+	List<Shop> findAllByCommissionBetweenAndLocationAreaNotContaining(Integer commission, Integer commission2, String locationArea);
 }
